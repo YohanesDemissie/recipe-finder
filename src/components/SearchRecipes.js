@@ -13,7 +13,7 @@ class SearchRecipes extends Component{
     }
   }
   search() {
-    //let { ingredients, dish } = this.state optional es6 deconstruction. But currently prefer the straightforward approach
+    let { ingredients, dish } = this.state //optional es6 deconstruction. But currently prefer the straightforward approach
     const url = `http://www.recipepuppy.com/api/?i=${this.state.ingredients}&q=${this.state.dish}`
     console.log('state', this.state, 'url', url);
 
@@ -21,9 +21,8 @@ class SearchRecipes extends Component{
       method: 'GET'
     }).then(response => response.json())
         .then(json => {
-          this.props.setRecipes(json.results) //results are an array of our results we are jsonifying
-        })
-
+          this.props.setRecipes(json.results)
+        });
   }
   render() {
     return(

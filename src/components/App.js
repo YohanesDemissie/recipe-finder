@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../styles/index.css';
-
 import SearchRecipes from './SearchRecipes'
+import RecipeList from './RecipeList';
+import '../styles/index.css';
 
 class App extends Component {
   render() {
@@ -9,6 +9,7 @@ class App extends Component {
       <div className="App">
         <h1>Recipe Finder</h1>
         <SearchRecipes />
+        <RecipeList />
       </div>
     );
   }

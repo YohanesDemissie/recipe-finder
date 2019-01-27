@@ -10,3 +10,8 @@ always set up ...
  - actions
  - reducers
  - store
+
+#Cors
+this is from sectopm 6, lecture 3:25 time stamp. we used a chrome plug in as follows 
+"allow control allow origin plug in"
+but will eventually replace this with actual cors in the end
