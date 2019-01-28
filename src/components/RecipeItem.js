@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { favoriteRecipe } from '../actions';
+import FavoriteRecipeList from './FavoriteRecipeList'
 
 class RecipeItem extends Component {
   constructor() {
@@ -21,18 +22,21 @@ class RecipeItem extends Component {
     return(
       <div className="recipe-item">
       {
-        this.state.favorited //if the state of favorited becomes true (ie when the star button is clicked)...
-          ?
-            <div
-              className="star">&#9733;</div> // ...the star icon is filled through the unicode of a colored store '&#9733;'
-            : //...otherwise, the star button is transparent by default (false) with the given unicode '&#9734;'
-            <div
-              className="star"
-              onClick={() => this.favorite(recipe)}
-            >
-              &#9734;
+        this.props.favoriteButton ?
+              this.state.favorited //if the state of favorited becomes true (ie when the star button is clicked)...
+                ?
+                <div
+                  className="star">&#9733;</div> // ...the star icon is filled through the unicode of a colored store '&#9733;'
+                : //...otherwise, the star button is transparent by default (false) with the given unicode '&#9734;'
+                <div
+                  className="star"
+                  onClick={() => this.favorite(recipe)}
+                >
+                  &#9734;
             </div>
+          : <div></div>
       }
+     
         <div className="recipe-text">
           <a href={recipe.href}>
             <h4>{recipe.title}</h4>
